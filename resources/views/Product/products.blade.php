@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>beauty</title>
+    <title>HOME</title>
 </head>
 <body>
-    <h1>Beauty Products</h1>
+    <h1>List Product</h1>
+    baby-kit
+    Beauty Products
+    Food Menu
 </body>
 </html>

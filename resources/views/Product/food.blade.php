@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>food</title>
+    <title>Food</title>
 </head>
 <body>
-    <h1>Food Lists</h1>
+    <h1>Food Menu</h1>
 </body>
 </html>

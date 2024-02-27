@@ -7,6 +7,6 @@
     <title>Penjualan</title>
 </head>
 <body>
-    Penjualan Page
+    Halaman Penjualan
 </body>
 </html>
