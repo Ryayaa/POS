@@ -22,7 +22,7 @@ Route::prefix('kategori')->group(function () {
 });
 
 
-Route::get('/User/{id}/name/{name}', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index']);
 
 Route::get('/Penjualan', [PenjualanController::class, 'index']);
 
