@@ -1,4 +1,4 @@
-{{-- JS7 praktikum 3 bagian 5 --}}
+
 @extends('layouts.template')
 
 @section('content')
