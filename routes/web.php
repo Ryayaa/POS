@@ -11,6 +11,9 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ManagerController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -83,6 +86,36 @@ Route::group(['prefix' => 'transaksi'],function () {
     Route::get('/{id}/edit', [TransaksiController::class, 'edit']);
     Route::put('/{id}', [TransaksiController::class, 'update']);
     Route::delete('/{id}', [TransaksiController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'transaksi'],function () {
+    Route::get('/', [TransaksiController::class, 'index']);
+    Route::post('/list', [TransaksiController::class, 'list']);
+    Route::get('/create', [TransaksiController::class, 'create']);
+    Route::post('/', [TransaksiController::class, 'store']);
+    Route::get('/{id}', [TransaksiController::class, 'show']);
+    Route::get('/{id}/edit', [TransaksiController::class, 'edit']);
+    Route::put('/{id}', [TransaksiController::class, 'update']);
+    Route::delete('/{id}', [TransaksiController::class, 'destroy']);
+});
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::get('register', [AuthController::class, 'register'])->name('register');
+Route::post('proses_login', [AuthController::class, 'proses_login'])->name('proses_login');
+Route::post('proses_register', [AuthController::class, 'proses_register'])->name('proses_register');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+// kita atur juga untuk middleware menggunakan group pada routing
+// didalamnya terdapat group untuk mengecek kondisi login
+// jika user yang login merupakan admin maka akan diarahkan ke AdminController
+// jika user yang login merupakan manager maka akan diarahkan ke ManagerController
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'cek_login:1'], function () {
+        Route::resource('admin', AdminController::class);
+    });
+    Route::group(['middleware' => 'cek_login:2'], function () {
+        Route::resource('manager', managerController::class);
+    });
 });
 
 
